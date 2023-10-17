@@ -1,7 +1,3 @@
-Example showing some UI controls like `Label`, `TextEdit`, `Slider`, `Button`.
+The GUI launcher for [https://github.com/expend20/DrSymLogger](https://github.com/expend20/DrSymLogger)
 
-```sh
-cargo run -p hello_world
-```
-
-![](screenshot.png)
+![](/img/screenshot1.png)
