@@ -26,11 +26,9 @@ jobs:
       run: cargo build --release --verbose
 
     - name: Compress Artifacts
-      uses: vimtor/action-zip@d78955ce8ce0b145b9f777076e53e1869efcadf6
+      uses: vimtor/action-zip@1.1
       with:
-        files: |
-          target/release/dr_symlogger_launcher.exe
-          cmd.bat
+        files: target/release/dr_symlogger_launcher.exe cmd.bat
         dest: ${{ github.event.repository.name }}-${{ github.sha }}.zip
 
     - name: Upload Artifacts
