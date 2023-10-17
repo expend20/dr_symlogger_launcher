@@ -1,0 +1,21 @@
+[package]
+name = "dr_symlogger_launcher"
+version = "0.1.0"
+authors = ["@expend20"]
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.67"
+publish = false
+
+
+[dependencies]
+eframe = { version = "0.22", features = [
+    "__screenshot", # __screenshot is so we can dump a screenshot using EFRAME_SCREENSHOT_TO
+] }
+env_logger = "0.10"
+rfd = "0.11"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+zip = "0.5"
+shlex = "0.1"
