@@ -25,17 +25,23 @@ jobs:
     - name: Build
       run: cargo build --release --verbose
 
-    - name: Create Artifact
+    - name: Compress Artifacts
+      uses: vimtor/action-zip@d78955ce8ce0b145b9f777076e53e1869efcadf6
+      with:
+        files: |
+          target/release/dr_symlogger_launcher.exe
+          cmd.bat
+        dest: ${{ github.event.repository.name }}-${{ github.sha }}.zip
+
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: artifacts
-        path: target/release/dr_symlogger_launcher.exe
+        path: ${{ github.event.repository.name }}-${{ github.sha }}.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: |
-          target/release/dr_symlogger_launcher.exe
-          cmd.bat
+        files: ${{ github.event.repository.name }}-${{ github.sha }}.zip
 
